@@ -1,0 +1,678 @@
+***Clase 3 instalación de git en windows***
+lo descargamos y todo next next next next, activamos las tres cajitas de enable y listo
+
+***Clase 4 Instalación en mac***
+
+buscamos descargar para mac en google y le damos continuar e instally sale
+
+***Clase 5 instalación en linux***
+para saber la version de git que tenemos es con el código:
+git --version
+
+***Clase 6 instalación de editor de texto***
+En visual studio no abre archivos de tipo binario es decir word, solo archivos de texto plano
+
+***Clase 7 Introducción a la terminal y línea de comandos***
+pwd -> sirve para saber en dónde estoy parado en este momento o en qué carpeta
+cd -> change directory = cambiar de carpeta
+si quiero volver al inicio de todas mis carpetas solo le doy 
+cd o cd / y listo me regrese al inicio de todas mis carpetas de donde estaba
+
+cuando tengo este signo ~, significa que estoy en el lugar de mis documentos en el hogar del usuario
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 ~
+
+y cuando tengo el slash / es porque estoy en la raíz del disco, y si le doy ls eso es listar los archivos que tengo en ese momento 
+ls -al -> con este comando lo que hago es pedir que me liste los archivos que tengo dentro de una lista, incluso los ocultos
+para entrar en un disco de mi pc desde el git bash lo puedo hacer así:
+- cd /e ó cd e:
+en cmder es diferente para ingresar a un disco de mi pc, es así:
+- e:
+- c:
+
+en el git bash de windows cuando quiero ingresar a una carpeta y esta tiene como nombre la primera letra en Mayúscula o minúscula no importa
+igual entra a la carpeta y a la misma carpeta, ejemplo:
+
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e
+$ cd PLATZI
+
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e/PLATZI
+$ ls
+'aprender el linea efectivamente'/                          'curso de tecnicas de formacion efectiva'/   learns/
+'Curso de gestion efectiva del tiempo'/                     'Curso profesional de git y github'/         platzi/
+'Curso de introducción a la terminal y línea de comandos'/  'cursos de la beca'/                        'platzi python'/
+'Curso de introducción al pensamiento probabilístico'/       entornoPlatzi/                             'python new'/
+
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e/PLATZI
+$ cd ..
+
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e
+$ cd platzi/
+
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e/platzi
+$ ls
+'aprender el linea efectivamente'/                          'curso de tecnicas de formacion efectiva'/   learns/
+'Curso de gestion efectiva del tiempo'/                     'Curso profesional de git y github'/         platzi/
+'Curso de introducción a la terminal y línea de comandos'/  'cursos de la beca'/                        'platzi python'/
+'Curso de introducción al pensamiento probabilístico'/       entornoPlatzi/                             'python new'/
+
+vemos que se puede hacer eso, pero en mac y linux si no se puede hacer eso, por lo tanto se debe tener cuidado con eso, porque los toma como carpetas distintas
+
+- para crear carpetas usamos el comando mkdir
+ejemplo: mkdir carpeta1
+mkdir significa make directory = crear carpeta
+
+- para crear un archivo desde cualquier lugar puedo dentro de una carpeta lo que puedo hacer es lo siguiente como ejemplo
+JoseLuisGarcia@DESKTOP-OPNS9OF MINGW64 /e/PLATZI/Curso profesional de git y github
+$ touch /e/platzi/"Curso profesional de git y github"/"carpeta de ejemplos"/archivo.txt
+- y para listar lo que hay dentro de una carpeta y esa carpeta su nombre está separada por espacios entonces se debe hacer así, debe ir entre comillas:
+ls "carpeta de ejemplos"
+- para crear una carpeta dentro de otra carpeta desde otro lugar o cualquier lugar se debe hacer así
+mkdir /e/platzi/"Curso profesional de git y github"/"carpeta de ejemplos"/nueva_carpeta
+siempre especificar la ruta exacta
+
+tener en cuenta que los nombres de las carpetas como están separadas por espacios deben ir entre comillas dobles
+
+cuando estoy dentro de una carpeta y le doy: ls -al me sale lo siguiente
+
+drwxr-xr-x 1 JoseLuisGarcia 197121    0 mar. 18 09:35  ./
+drwxr-xr-x 1 JoseLuisGarcia 197121    0 mar. 18 09:27  ../
+-rw-r--r-- 1 JoseLuisGarcia 197121 4178 mar. 18 09:35  apuntes.txt
+drwxr-xr-x 1 JoseLuisGarcia 197121    0 mar. 18 09:30 'carpeta de ejemplos'/
+
+en donde está el ./ quiere decir que es la carpeta actual donde estoy parado
+en donde está el ../ quiere decir que es la carpeta antes o anterior de donde estoy parado
+
+cat -> para ver el contenido de una archivo
+history -> sirve para ver el historial de comandos que hemos ejecutado y para por ejemplo ejecutar un comando de esos que hay ahí lo hacemos así:
+miramos el número del comando o el id del comando y lo pasamos junto con un signo de admiración de la siguiente manera:
+ejemplo: !70 
+y ese comando por ejemplo ejecuta: cat archivo.txt
+
+rm -> significa remove = borrar o eliminar, y sirve para borrar archivos
+para saber todas las opciones de un comando, lo que hacemos es escribir el comando y --help, es decir así:
+rm --help
+
+***Clase 8 crear un repositorio de git y haz tu primer commit***
+
+para abrir el visual studio code donde yo quiera desde la terminal, basta con escribir el siguiente comando:
+- code .
+
+un ejemplo de como subir archivos a git es el siguiente mucho cuidado:
+git status -> es para ver el estado del archivo o archivos que vamos a subir
+si está en color rojo eso quiere decir que ha tenido o sufrido cambios entonces lo chequeamos y si todo está bien le damos
+git add nombre_archivo para subirlo, luego volvemos a dar git status y si aparece en verde quiere decir que está listo para subir
+y si por ejemplo por x o y motivo, ese archivo no lo queremos subir lo podemos sacar de la caché, de la memoria o de la base de datos de la siguiente manera
+git rm --cached nombre_archivo
+entonces cuando vamos a ver el estado del archivo con git status nos debe aparecer en rojo de nuevo
+ya cuando el archivo está en color verde lo podemos subir al repositorio con:
+git commit -m "mi primer commit" 
+siempre como buena práctica es importante colocarle nombre al commit y es ese que está entre comillas
+
+- ahora vamos a configurar nuestro git con nuestras credenciales de la siguiente manera:
+$ git config --global user.name "the colombian encoder"
+$ git config --global user.email "iamjoseluisg@gmail.com"
+
+con: $ git config --list
+puedo ver mis credenciales en git
+
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+credential.helper=manager
+user.name=the colombian encoder
+user.mail=iamjoseluisg
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+con eso ya queda mis credenciales activas
+
+- git log -> para ver la historia de un archivo donde la fecha que está arriba es el cambio más reciente
+en él podemos ver la etiqueta o tag del commit o también lo podemos llamar como su identificador para ver un commit que hice
+por ejemplo es este: commit d0549949457d09763f8477eae1cc453d1638f839 
+el autor: Author: the colombian encoder <iamjoseluisg@gmail.com>
+fecha en que se hizo: Date:   Fri Mar 18 10:38:45 2022 -0500
+
+nombre del commit: cambios generales
+
+***Clase 9 Analizar cambios en los archivos de tu proyecto con git***
+
+git show -> nos muestra los cambios que han existido sobre un archivo, y es así:
+- ejemplo: git show apuntes.txt
+con este podemos ver cuál fue el último commit, fecha, nombre del commit, 
+y ver también los cambios que se han hecho dentro de una línea o un archivo los coloca en color verde lo que se ha añadido
+- git commit: si por ejemplo yo quiero hacer eso, es decir, enviarlo sin mensaje el commit lo que va pasar es que automáticamente
+se me va abrir una consola donde puedo colocar el nombre del commit, para habilitar escribir presiono esc + la letra i ahí digito el nombre, y para salir de esa consola es así:
+primero esc luego tengo presionado shift + zz
+y ya con eso se guardado 
+- git diff -> para ver los cambios entre un cambio y otro cambio del archivo o dos commits o dos archivos, lo hago de la siguiente manera
+lo que hago es copiar los commits y pegarlos separados por un espacio, en este caso voy a comparar la versión más vieja con la más nueva
+y también se puede comparar la versión más nueva con la más vieja y sus resultados serán diferentes
+git diff 8974d912aadf54bd0826b10e2f6e833b28bfa910 4413c19132b7c0d50a76db1e5e5cdb6653d01387
+y ya con eso me muestra las diferencias, en verde la versión original y en rojo la última versión o lo que se agregó
+con eso podemos ver los cambios que se han hecho entre uno y otro archivo
+para salir de esa consola presiono q
+
+***Clase 10 ¿Qué es el staging y los repositorios? Ciclo básico de trabajo en git***
+git init -> cuando le doy este comando se crea un area en memoria ram que se llama staging, es un area completamente desconectada que funciona en memoria ram y es donde al principio 
+se van agregando los cambios y donde se crea el repositorio y el repositorio es esa carpeta que se conoce como .git y ahí van a estár todos los cambios al final del proyecto
+una vez uno agrega los cambios al archivo los agrega al staging area, es decir, al area de memoria ram donde se guardan todos los cambios usando git add
+y a ese comando se le agrega el archivo, cuando hacemos git add el archivo pasa a vivir en staging y en ese momento el archivo está esperando que sea envíado
+al repositorio
+una vez al archivo se le da git add pasa a ser rastreado es decir pasa al estado tracked 
+staging es un área de preparación por así decirlo es un lugar temporal antes de enviar los cambios al repositorio, y es cuando le damos
+git commit -m que esos cambios pasan de estár trackeados en staging a estár trackeados en el repositorio
+
+tener en cuenta que cada commit nuevo es una nueva versión de commit
+
+***Clase 11 ¿Qué es un branch (rama) y cómo funciona un merge en git?***
+
+Por defecto uno siempre está en la rama master y ahí es donde tiene uno los archivos y cada vez que uno hace un commit crea una nueva versión de commit
+
+***Clase 12 Volver en el tiempo en nuestro repositorio utilizando reset y checkout***
+
+git reset -> nos permite volver a una versión anterior pasandole el commit también puede ser
+está el git reset commit --hard y git reset commit --soft
+el --hard: es el que más se usa y regrese absolutamente todo al estado anterior
+el --soft: volvemos a la version anterior del archivo pero lo que tengamos en staging se queda o se conserva en staging
+es decir que si se han hecho cambios y se le ha dado git add eso sigue ahí disponible para el próximo commit simplemente que el directorio de trabajo
+vuelve a la versión anterior
+
+ejemplo:  git reset d0549949457d09763f8477eae1cc453d1638f839 --hard
+git reset d0549949457d09763f8477eae1cc453d1638f839 --soft
+
+El comando git checkout + ID del commit nos permite viajar en el tiempo. Podemos volver a cualquier versión anterior de un archivo específico o incluso del proyecto entero. Esta también es la forma de crear ramas y movernos entre ellas.
+
+También hay una forma de hacerlo un poco más “ruda”: usando el comando git reset. En este caso, no solo “volvemos en el tiempo”, sino que borramos los cambios que hicimos después de este commit.
+
+Hay dos formas de usar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+
+git log --stat -> con esto podemos ver los cambios especificos que se hicieron en cuales archivos a partir del commit y ver si su colocaron o se quitaron líneas
+ahí nos lo identifica con +++++ y -----
+
+y para ver el archivo en un commit anterior hacemos el checkout y copiamos el indicador de ese commit que queremos ver y le damos lo siguiente:
+git checkout id_commit archivo_queremos_ver
+ejemplo: git checkout 4413c19132b7c0d50a76db1e5e5cdb6653d01387 apuntes.txt
+y si queremos ver los último cambios para no perderlos le damos lo siguiente
+git checkout master apuntes.txt
+
+Cómo usar Git Reset
+Para volver a commits previos, borrando los cambios realizados desde ese commit, podemos utilizar:
+
+git reset --soft [SHA 1]: elimina los cambios hasta el staging area
+git reset --mixed [SHA 1]: elimina los cambios hasta el working area
+git reset --hard [SHA 1]: regresa hasta el commit del [SHA-1]
+Donde el SHA-1 es el identificador del commit
+
+recomendados de la clase:
+
+https://platzi.com/cursos/html-css/
+https://platzi.com/cursos/programacion-basica/
+
+***Clase 13 Git reset vs git rm***
+
+Git reset y git rm son comandos con utilidades muy diferentes, pero se pueden confundir muy fácilmente.
+
+git rm
+Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el último commit antes de borrar el archivo en cuestión.
+
+Recuerda que git rm no puede usarse así nomás. Debemos usar uno de los flags para indicarle a Git cómo eliminar los archivos que ya no necesitamos en la última versión del proyecto:
+
+git rm --cached: Elimina los archivos de nuestro repositorio local y del área de staging, pero los mantiene en nuestro disco duro. Básicamente le dice a Git que deje de trackear el historial de cambios de estos archivos, por lo que pasaran a un estado untracked.
+git rm --force: Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la existencia de los archivos, de modo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).
+git reset
+Este comando nos ayuda a volver en el tiempo. Pero no como git checkout que nos deja ir, mirar, pasear y volver. Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. No hay vuelta atrás.
+
+Este comando es muy peligroso y debemos emplearlo solo en caso de emergencia. Recuerda que debemos usar alguna de estas dos opciones:
+
+Hay dos formas de utilizar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+
+git reset --soft: Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.
+git reset --hard: Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging se borra del historial.
+¡Pero todavía falta algo!
+
+git reset HEAD: Este es el comando para sacar archivos del área de staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.
+¿Por qué esto es importante?
+Imagina el siguiente caso:
+
+Hacemos cambios en los archivos de un proyecto para una nueva actualización. Todos los archivos con cambios se mueven al área de staging con el comando git add. Pero te das cuenta de que uno de esos archivos no está listo todavía. Actualizaste el archivo, pero ese cambio no debe ir en el próximo commit por ahora.
+
+¿Qué podemos hacer?
+
+Bueno, todos los cambios están en el área de Staging, incluido el archivo con los cambios que no están listos. Esto significa que debemos sacar ese archivo de Staging para poder hacer commit de todos los demás.
+
+¡Al usar git rm lo que haremos será eliminar este archivo completamente de git! Todavía tendremos el historial de cambios de este archivo, con la eliminación del archivo como su última actualización. Recuerda que en este caso no buscábamos eliminar un archivo, solo dejarlo como estaba y actualizarlo después, no en este commit.
+
+En cambio, si usamos git reset HEAD, lo único que haremos será mover estos cambios de Staging a Unstaged. Seguiremos teniendo los últimos cambios del archivo, el repositorio mantendrá el archivo (no con sus últimos cambios, pero sí con los últimos en los que hicimos commit) y no habremos perdido nada.
+
+Conclusión: Lo mejor que puedes hacer para salvar tu puesto y evitar un incendio en tu trabajo es conocer muy bien la diferencia y los riesgos de todos los comandos de Git.
+
+Aporte creado por: Juan David Castro
+
+***Clase 14 Flujo de trabajo básico con un repositorio remoto***
+- Directorio de trabajo
+- Preparación o staging
+- Repositorio local
+
+con git add ponemos los archivos en área de preparación, entra en estado de rastre por git, es decir, staging 
+ya con git commit lo que hacemos es que lo que está en staging lo enviamos a nuestro repositorio local
+cuando se tiene un proyecto donde se trabaja con múltiples desarrolladores se necesita un repositorio remoto para subir y bajar cambios
+cuando queremos traer datos de un servidor remoto lo traemos con git clone url_del_repositorio
+luego de hacer git add, git commit para subir mis cambios al repositorio remoto lo que hago es darle git push origin 
+- otro caso es por ejemplo cuando ya estoy conectado al repositorio remoto, ya lo cloné, y alguien subió un nuevo cambio para bajar este cambio lo que hacemos es:
+git fetch -> este me trae los cambios al repositorio local, pero no me lo copia en mis archivos, para que me lo copie en mis archivos tengo que fucionar la última versión que está
+en mi repositorio local con mi versión actual y eso se llama un merge y lo hacemos con git merge
+pero pa evitar el fetch y el merge uso mejor el git pull que lo que hace es copiar el repositorio local, la base de datos de cambios
+y copio el directorio, de esa manera siempre tengo una copia actualizada de lo último que pasó en el repositorio
+
+***Clase 15 Introducción a las ramas o branches de git***
+siempre el commit más reciente se le llama cabecera (HEAD) 
+
+git commit -am -> nos sirve para agregar y hacer commit a archivos que con antelación ya le habíamos hecho commit y add
+por ejemplo: git commit -am "mensaje del commit"
+si lo dejamos solo con -a nos va aparecer nuevamente la consola de git para que le coloquemos el nombre del commit y que para escribirlo usamos
+esc + i y para salir cuando ya escribimos es con: esc + shift zz
+
+y esos cambios los vamos chequeando recurrentemente con git log y git log --stat y git show 
+con git log --stat podemos ver cuántas inserciones y eliminaciones se hicieron en el archivo que ahí muestra
+
+- para crear una rama es así:
+git branch nombre_de_rama
+- para cambiarme de rama es así:
+git checkout nombre_rama_a_la_que_me_voy_a_cambiar
+
+
+Las ramas son la forma de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
+
+La cabecera o HEAD representan la rama y el commit de esa rama donde estamos trabajando. Por defecto, esta cabecera aparecerá en el último commit de nuestra rama principal. Pero podemos cambiarlo al crear una rama (git branch rama, git checkout -b rama) o movernos en el tiempo a cualquier otro commit de cualquier otra rama con los comandos (git reset id-commit, git checkout rama-o-id-commit).
+
+Cómo funcionan las ramas en GIT
+Las ramas son la manera de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
+
+git branch -nombre de la rama-: Con este comando se genera una nueva rama.
+
+git checkout -nombre de la rama-: Con este comando puedes saltar de una rama a otra.
+
+git checkout -b rama: Genera una rama y nos mueve a ella automáticamente, Es decir, es la combinación de git brach y git checkout al mismo tiempo.
+
+git reset id-commit: Nos lleva a cualquier commit no importa la rama, ya que identificamos el id del tag., eliminando el historial de los commit posteriores al tag seleccionado.
+
+git checkout rama-o-id-commit: Nos lleva a cualquier commit sin borrar los commit posteriores al tag seleccionado.
+
+Aporte creado por: Carlos Eduardo Diaz
+
+***Clase 16 Fusión de ramas con git merge***
+
+git merge: Tener bien en cuenta que cuando hago un merge el merge se haceola información se pega a la rama en donde estoy, por ejemplo
+si yo tengo cambios en la rama master pero en este momento estoy parado en la rama cabecera y hago merge lo que pasa es que los cambios no se
+agregan a master si no que se pegan a cabecera, y cabecera se vuelve la principal, tener cuidado
+
+git branch -> para ver cuántas ramas hay
+
+
+
+El comando git merge nos permite crear un nuevo commit con la combinación de dos ramas (la rama donde nos encontramos cuando ejecutamos el comando y la rama que indiquemos después del comando).
+
+Cómo usar Git merge
+En este ejemplo, vamos a crear un nuevo commit en la rama master combinando los cambios de una rama llamada cabecera:
+
+git checkout master
+git merge cabecera
+Otra opción es crear un nuevo commit en la rama cabecera combinando los cambios de cualquier otra rama:
+
+git checkout cabecera
+git merge cualquier-otra-rama
+Asombroso, ¿verdad? Es como si Git tuviera superpoderes para saber qué cambios queremos conservar de una rama y qué otros de la otra. El problema es que no siempre puede adivinar, sobre todo en algunos casos donde dos ramas tienen actualizaciones diferentes en ciertas líneas en los archivos. Esto lo conocemos como un conflicto.
+
+Recuerda que al ejecutar el comando git checkout para cambiar de rama o commit puedes perder el trabajo que no hayas guardado. Guarda siempre tus cambios antes de hacer git checkout.
+
+Comandos básicos de GitHub
+git init: crear un repositorio.
+git add: agregar un archivo a staging.
+git commit -m “mensaje”: guardar el archivo en git con un mensaje.
+git branch: crear una nueva rama.
+git checkout: moverse entre ramas.
+git push: mandar cambios a un servidor remoto.
+git fetch: traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local.
+git merge: tiene dos usos. Uno es la fusión de ramas, funcionando como un commit en la rama actual, trayendo la rama indicada. Su otro uso es guardar los cambios de un servidor remoto en nuestro directorio.
+git pull: fetch y merge al mismo tiempo.
+Comandos para corrección en GitHub
+git checkout “codigo de version” “nombre del archivo”: volver a la última versión de la que se ha hecho commit.
+git reset: vuelve al pasado sin posibilidad de volver al futuro, se debe usar con especificaciones.
+git reset --soft: vuelve a la versión en el repositorio, pero guarda los cambios en staging. Así, podemos aplicar actualizaciones a un nuevo commit.
+git reset --hard: todo vuelve a su versión anterior
+git reset HEAD: saca los cambios de staging, pero no los borra. Es lo opuesto a git add.
+git rm: elimina los archivos, pero no su historial. Si queremos recuperar algo, solo hay que regresar. se utiliza así:
+git rm --cached elimina los archivos en staging pero los mantiene en el disco duro.
+git rm --force elimina los archivos de git y del disco duro.
+Comandos para revisión y comparación en GitHub
+git status: estado de archivos en el repositorio.
+git log: historia entera del archivo.
+git log --stat: cambios específicos en el archivo a partir de un commit.
+git show: cambios históricos y específicos hechos en un archivo.
+git diff “codigo de version 1” “codigo de version 2”: comparar cambios entre versiones.
+git diff: comparar directorio con staging.
+Aporte creado por: Pedro Alejandro Silva.
+
+***Clase 17 resolución de confictos al hacer merge***
+para arreglar un conflicto, hacemos lo siguiente:
+
+podemos o quitar los cambios a mano o aceptar cambios con las siguientes opciones:
+
+1. Accept current change -> aceptar cambio actual
+2. Accept incoming change -> aceptar cambio que viene
+3. Accept both changes -> aceptar ambos cambios
+4. Compare changes -> comparar cambios
+
+luego de hacer el paso que se haya escogido ya subimos de nuevo el cambio con git add y git commit
+hice el git merge cabecera -> es decir, traje los cambios de cabecera a mi rama master y esos cambios quedaron fusionados
+pero en mi rama cabecera si sigo con mi cambio anterior porque lo que hice fue fusionar y llevar los cambios a master y en cabecera quedé con mis cambios igual
+
+***Clase 18 Cambios en github: de master a main***
+
+ectura es parte del curso profesional de Git & GitHub. Quédate conmigo.
+
+Desde el 1 de octubre de 2020 GitHub cambió el nombre de la rama principal: ya no es “master” -como aprenderás en el curso- sino main.
+
+Este derivado de una profunda reflexión ocasionada por el movimiento #BlackLivesMatter.
+
+La industria de la tecnología lleva muchos años usando términos como master, slave, blacklist o whitelist y esperamos pronto puedan ir desapareciendo.
+
+Y sí, las palabras importan.
+
+Por lo que de aquí en adelante cada vez que escuches a Freddy mencionar “master” debes saber que hace referencia a “main”
+
+Puedes leer un poco más aquí: Cambios en GitHub: de master a main
+https://platzi.com/blog/cambios-en-github-master-main/
+
+***Clase 19 uso de github***
+github es un sitio web que tiene por dentro un servidor git en el que cualquiera de nosotros, puede clonar un repositorio, crear un repositorio
+y compartirlo con otras personas, se dice también que es una interfaz visual de nuestros repositorios, muchas veces se llama como la red social de los desarrolladores
+cuando creamos un repositorio hay un archivo llamado readme, es un archivo que se va a ver en el momento en que una persona entre a nuestro repositorioen github
+es una buena práctica y es básicamente crear en la raíz de nuestro proyecto un archivo que se llama readme.md es un archivo de texto
+que permite explicar a las personas que abren el repositorio qué es el repositorio
+- al repositorio se le puede asignar licencia, puede ser de código abierto, código semi abierto, entre otros
+y puede ser público o privado
+en el repositorio tenemos unas opciones que son:
+- raw -> que nos muestra el texto plano que nos creo el archivo 
+- blame -> nos muestra como el historial de las personas que han movido o hecho algo en ese repositorio
+- history -> nos muestra la historia de ese archivo
+
+ahora si para enviar las cosas que hicimos es crear un repositorio en github y cambiar la forma de clonar a https, luego
+vamos a la terminal miramos que estemos en la rama master y le decimos a git que vamos agregar un origen remoto de nuestros archivos
+eso lo hacemos así:
+tener en cuenta que antes de hacer el git remote debemos haber hecho el git init
+git remote add origin url_del_repositorio
+ejemplo: git remote add origin https://github.com/thecolombianencoder/curso-de-git-y-github.git
+luego pasamos a darle: git remote y nos aparece algo que se llama origin
+y si le damos git remote -v -> esto nos muestra un fetch que significa traer datos y push que significa subir o enviar datos
+-v -> que significa es que sea verbal
+y con eso ya queda para subir información con:
+git push origin master
+lo que le decimos ahí a git es envíele información al origen la rama master
+
+cuando me sale el error:
+fatal: refusing to merge unrelated histories
+para solucionarlo es así:
+y ese error anterior lo que significa es que -> se rehusa a la relacionar historias no definidas lo que significa que la historia de todos esos commits
+que el readme.md es una historia distinta una historia es un grupo de commits por lo que lo toma como una historia distinta
+y lo solucionamos con este comando:
+git pull origin master --allow-unrelated-histories
+
+- También podemos hacer cambios desde la interfaz de github así:
+en el repositorio busco un archivo y le doy en el lápiz lo que significa: editar 
+le cambio el título,y ahí mismo en esa parte puedo ver previamente los cambios que va sufrir ese archivo con el botón que es preview changes
+y en la parte de abajo puedo hacer el commit donde o puedo colocar una nueva rama o si hacerlo directamente en la rama master
+y hasta puedo modificar el usuario que hizo el commit o colocar un usuario
+los cambios que hice en la interfaz gráfica de github no se ven reflejados en mi archivos de mi pc por así decirlo, entonces para ver esos cambios lo que hago es lo siguiente:
+voy al terminal y coloco:
+git pull origin master
+eso pasa porque ese comando anterior se encarga de bajar información de la rama que se le pide
+y con git log puedo ver esos cambios que hice y nos muestra las ramas que están trabajando
+
+***Clase 20 cómo funcionan las llaves públicas y privadas***
+
+se inventaron el algoritmo llaves públicas y llaves privadas que es también conocido como cifrado asimétrico de un solo camino y funciona de la siguiente manera
+si yo quiero enviar ese mensaje secreto entonces voy a crear algo especial que se llama una llave pública y llaves privada 
+estas llaves se crean con un proceso algorítmico, lo que significa que lo que yo cifre con mi llave pública solo lo abre mi llave privada, y es un proceso matemático y ese proceso
+lo que me permite es convertir ese secreto en algo completamente oculto
+
+Las llaves públicas y privadas, conocidas también como cifrado asimétrico de un solo camino, sirven para mandar mensajes privados entre varios nodos con la lógica de que firmas tu mensaje con una llave pública vinculada con una llave privada que puede leer el mensaje.
+
+Las llaves públicas y privadas nos ayudan a cifrar y descifrar nuestros archivos de forma que los podamos compartir sin correr el riesgo de que sean interceptados por personas con malas intenciones.
+
+Cómo funciona un mensaje cifrado con llaves públicas y privadas
+Ambas personas deben crear su llave pública y privada.
+Ambas personas pueden compartir su llave pública a las otras partes (recuerda que esta llave es pública, no hay problema si la “interceptan”).
+La persona que quiere compartir un mensaje puede usar la llave pública de la otra persona para cifrar los archivos y asegurarse que solo puedan ser descifrados con la llave privada de la persona con la que queremos compartir el mensaje.
+El mensaje está cifrado y puede ser enviado a la otra persona sin problemas en caso de que los archivos sean interceptados.
+La persona a la que enviamos el mensaje cifrado puede emplear su llave privada para descifrar el mensaje y ver los archivos.
+Nota: puedes compartir tu llave pública, pero nunca tu llave privada.
+
+Aporte creado por: David Behar
+
+***Clase 21 Configura tus llaves ssh en local***
+
+para ver como está configurado git en nuestro local lo hacemos así:
+- git config -l 
+y ahí nos muestra nuestras credenciales como correo, nombre de usuario, etc.
+cuando queremos cambiar o actualizar nuestras credenciales por ejemplo correo lo hacemos igual que cuando lo asociamos, así:
+git config --global user.email "correo@nuevo.com"
+y lo verificamos nuevamente con git config -l
+- Ahora si para crear la llave ssh es así con este comando:
+ssh-keygen -t rsa -b 4096 -C "iamjoseluisg@gmail.com"
+-t -> nos específica cuál es el algoritmo que vamos a usar para crear esa llave
+-b -> especificamos qué tal compleja es la llave y le colocamos el 4096
+-C -> nos indica a qué correo electrónico va estár conectada esa llave
+cuando lo ejecutamos nos pide un passphrase que se recomienda colocar a esa clave, es una contraseña adicional de texto que se le coloca a la llave pública y privada
+para el curso le puse clave que es python2019, le di todo enter
+
+para ver la llave vamos a la siguiente ruta en git bash
+Your identification has been saved in /c/Users/josel/.ssh/id_rsa
+Your public key has been saved in /c/Users/josel/.ssh/id_rsa.pub
+
+ahora para ejecutar la llave tenemos que revisar que el servidor de llaves de ssh estén encendidas y lo hacemos así:
+eval $(ssh-agent -s)
+es un comando complejo pero con esto evaluamos que un comando se dispare 
+el agent que me salió a mi es: Agent pid 1980, lo que significa es que el servidor de ssh está corriendo y el pid es el id del proceso
+ahora el siguiente paso es agregar la llave a ese sistema, y es con el siguiente comando
+- ssh-add ~/.ssh/id_rsa
+y ya me sale esto:
+Enter passphrase for /c/Users/josel/.ssh/id_rsa:
+Identity added: /c/Users/josel/.ssh/id_rsa (iamjoseluisg@gmail.com)
+y queda agregada la llave
+
+esto fue en ubuntu
+Your identification has been saved in /home/theliom/.ssh/id_rsa
+Your public key has been saved in /home/theliom/.ssh/id_rsa.pub
+
+En este ejemplo, aprenderemos cómo configurar nuestras llaves SSH en local.
+
+Cómo generar tus llaves SSH
+1. Generar tus llaves SSH**
+Recuerda que es muy buena idea proteger tu llave privada con una contraseña.
+
+ssh-keygen -t rsa -b 4096 -C "tu@email.com"
+2. Terminar de configurar nuestro sistema.
+En Windows y Linux:
+
+Encender el “servidor” de llaves SSH de tu computadora:
+eval $(ssh-agent -s)
+Añadir tu llave SSH a este “servidor”:
+ssh-add ruta-donde-guardaste-tu-llave-privada
+En Mac:
+
+Encender el “servidor” de llaves SSH de tu computadora:
+eval "$(ssh-agent -s)"
+Si usas una versión de OSX superior a Mac Sierra (v10.12), debes crear o modificar un archivo “config” en la carpeta de tu usuario con el siguiente contenido (ten cuidado con las mayúsculas):
+Host *
+
+AddKeysToAgent yes
+UseKeychain yes
+IdentityFile ruta-donde-guardaste-tu-llave-privada
+Añadir tu llave SSH al “servidor” de llaves SSH de tu computadora (en caso de error puedes ejecutar este mismo comando pero sin el argumento -K):
+ssh-add -K ruta-donde-guardaste-tu-llave-privada
+
+***Clase 22 Conexión a GitHub con SSH***
+activamos la clave en github, vamos a settings, ssh and gpg keys
+le colocamos una descripción y pegamos la llave pública ahí, luego vamos a la consola ingresamos a la carpeta donde está el proyecto y verificamos los datos que tenemos con git remote -v
+y nos muestra la url de nuestros repositorios, y procedemos a cambiar esa url, y lo hacemos así:
+primero vamos a github y cuando vamos a copiar la url de nuestro repositorio en lugar de copiar la https copiamos la de ssh
+- git remote set-url origin git@github.com:thecolombianencoder/curso-de-git-y-github.git
+y ya con eso se cambia la url y lo verificamos con git remote -v que haya cambiado la url
+y para saber que quedó funcionado, hacemos cambios en código para probar
+
+
+La creación de las SSH es necesario solo una vez por cada computadora. Aquí conocerás cómo conectar a GitHub usando SSH.
+
+Luego de crear nuestras llaves SSH podemos entregarle la llave pública a GitHub para comunicarnos de forma segura y sin necesidad de escribir nuestro usuario y contraseña todo el tiempo.
+
+Para esto debes entrar a la Configuración de Llaves SSH en GitHub, crear una nueva llave con el nombre que le quieras dar y el contenido de la llave pública de tu computadora.
+
+Ahora podemos actualizar la URL que guardamos en nuestro repositorio remoto, solo que, en vez de guardar la URL con HTTPS, vamos a usar la URL con SSH:
+
+ssh
+git remote set-url origin url-ssh-del-repositorio-en-github
+Comandos para copiar la llave SSH:
+-Mac:
+
+pbcopy < ~/.ssh/id_rsa.pub
+Windows (Git Bash):
+clip < ~/.ssh/id_rsa.pub
+Linux (Ubuntu):
+cat ~/.ssh/id_rsa.pub
+Aporte de: Juan Luis Rojas
+
+Clases relacionadas
+Deploy con GitHub Pages
+https://platzi.com/clases/2327-javascript-practico/38675-deploy-con-github-pages/
+
+***Clase 23 Tags y versiones en Git y GitHub***
+
+git log --all -> nos muestra todos los commits que se han hecho hasta ahora historicamente
+git log --all --graph -> por medio de líneas nos ha mostrado como han funcionado las ramas
+git log --all --graph --decorate --oneline -> nos muestra una gráfica mucho más comprimida de todos los commits que se han hecho y como han trabajado las ramas
+historicamente, desde el primer commit hasta el más reciente
+
+lo coloqué en un alias, donde lo ya era un alias y corresponde al siguiente: git log
+alias arbolito="lo --all --decorate --oneline"
+Los tags o etiquetas nos permiten asignar versiones a los commits con cambios más importantes o significativos de nuestro proyecto.
+
+para crear un tag es así: se toma el hash del commit o lo que se conoce también como el identificador del commit y se lo coloca en un comando git de la siguiente manera
+git tag -a nombre_tag -m "mensaje del tag como en un commit" hash_del_commit
+ejemplo: git tag -a primer_tag -m "Mi primer tag" f022570
+y con git tag: puedo ver los nombres de los tags que tengo
+y para saber a que hash o a que commit está asignado un tag lo hacemos así:
+git show-ref --tags
+y tengo lo siguiente
+18beea764dd6d14e8d21feb479144fcb5eae1acb refs/tags/all
+903ff9ee1db608eef0af836ad3306b4ff68a4e65 refs/tags/primer_tag
+-a -> significa que se va a agregar un tag
+ahora para subir ese tag al repositorio lo hacemos con el siguiente comando:
+git push origin --tags
+y para ver ese tag vamos a github y en la parte donde se ven las ramas que hay en el proyecto ahí abajo hay un botón que dice tags y ahí las podemos ver
+y podemos visualizar que nos subió también datos de nuestro pc al repositorio
+- para eliminar un tag que por x o y motivo ya no quiero lo hago con el siguiente proceso:
+- git tag -d nombre_del_tag
+ejemplo: git tag -d tag_malo
+generalmente el tag se cierra en mi terminal de comandos o se puede decir que internamente, pero en github sigue apareciendo, entonces para borrarlo de allá hacemos lo siguiente:
+- git push origin :ref/tags/nombre_del_tag
+ejemplo: git push origin :refs/tags/tag_malo
+y ya con eso se borraron los tags
+
+Comandos para trabajar con etiquetas:
+Crear un nuevo tag y asignarlo a un commit: git tag -a nombre-del-tag id-del-commit.
+Borrar un tag en el repositorio local: git tag -d nombre-del-tag.
+Listar los tags de nuestro repositorio local: git tag o git show-ref --tags.
+Publicar un tag en el repositorio remoto: git push origin --tags.
+Borrar un tag del repositorio remoto: git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag.
+Para generar un comando complejo con varios comandos de una forma optimizada, utilizamos conjuntos de sentencias conocidas como alias.
+
+Cómo aregar un alias solo para git
+Para un proyecto:
+git config alias.arbolito "log --all --graph --decorate --oneline"
+Global:
+git config --global alias.arbolito "log --all --graph --decorate --oneline"
+Para correrlo:
+git arbolito
+Aporte creado por: Jorge Sarabia
+- para agregar un alias para siempre en git:
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+***Clase 24 Manejo de ramas en GitHub***
+
+- git checkout nombre_rama -> para cambiar de rama
+ejemplo: git checkout master
+- git branch -> nos muestra las ramas que tenemos
+- git show-branch -> nos muestran cuales son las ramas que existen y cuál es su historia
+por ejemplo: commits y merge que se han hecho
+- git show-branch --all -> nos muestran cuales son las ramas que existen y cuál es su historia más reciente pero más detallado
+por ejemplo commits, merge, entre otros datos
+- gitk -> es un software que de manera visual nos permite ver ramas y commits, cambios que se han hecho, entre otros.
+
+Las ramas nos permiten hacer cambios a nuestros archivos sin modificar la versión principal (master). Puedes trabajar con ramas que nunca envías a GitHub, así como pueden haber ramas importantes en GitHub que nunca usas en el repositorio local. Lo crucial es que aprendas a manejarlas para trabajar profesionalmente.
+
+Si, estando en otra rama, modificamos los archivos y hacemos commit, tanto el historial(git log) como los archivos serán afectados. La ventaja que tiene usar ramas es que las modificaciones solo afectarán a esa rama en particular. Si luego de “guardar” los archivos(usando commit) nos movemos a otra rama (git checkout otraRama) veremos como las modificaciones de la rama pasada no aparecen en la otraRama.
+
+Comandos para manejo de ramas en GitHub
+Crear una rama:
+git branch branchName
+Movernos a otra rama:
+git checkout branchName
+Crear una rama en el repositorio local:
+git branch nombre-de-la-rama o git checkout -b nombre-de-la-rama.
+Publicar una rama local al repositorio remoto:
+git push origin nombre-de-la-rama.
+Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git utilizando el comando gitk. Gitk fue el primer visor gráfico que se desarrolló para ver de manera gráfica el historial de un repositorio de Git.
+
+Aporte creado por: Brayan Mamani
+
+Clases relacionadas
+https://platzi.com/clases/2157-desarrollo-moderno-codestream/33754-github-en-tu-editor/
+https://platzi.com/clases/2327-javascript-practico/38675-deploy-con-github-pages/
+https://platzi.com/clases/2683-github-actions/45308-github-pages/
+
+***Clase 25 Configurar múltiples colaboradores en un repositorio de GitHub***
+
+tomo el enlace que tengo en mi repositorio para clonar y copio el de https para que el nuevo usuario pueda acceder a esa información
+
+
+Por defecto, cualquier persona puede clonar o descargar tu proyecto desde GitHub, pero no pueden crear commits, ni ramas. Esto quiere decir que pueden copiar tu proyecto pero no colaborar con él. Existen varias formas de solucionar esto para poder aceptar contribuciones. Una de ellas es añadir a cada persona de nuestro equipo como colaborador de nuestro repositorio.
+
+Cómo agregar colaboradores en Github
+Solo debemos entrar a la configuración de colaboradores de nuestro proyecto. Se encuentra en:
+Repositorio > Settings > Collaborators
+Ahí, debemos añadir el email o username de los nuevos colaboradores.
+
+collaborator.png
+Si, como colaborador, agregaste erróneamente el mensaje del commit, lo puedes cambiar de la siguiente manera:
+
+Hacer un commit con el nuevo mensaje que queremos, esto nos abre el editor de texto de la terminal:
+git commit —amend
+Corregimos el mensaje
+Traer el repositorio remoto
+git pull origin master
+Ejecutar el cambio
+git push --set-upstream origin master
+Aporte creado por: Andrés Zambrano
+
+Clases relacionadas
+https://platzi.com/clases/2436-proyectos-data-science/42565-como-mejorar-tu-repositorio-en-github-para-ciencia/
+
+
+
+ruta para ingresar al disco e: desde git bash
+cd e:
+/e/platzi/Curso profesional de git y github
+ruta para ingresar al disco e: desde ubuntu 20.04.4
+/mnt/e/platzi/Curso profesional de git y github
