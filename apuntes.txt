@@ -697,6 +697,12 @@ estos pasan a el servidor de producción con el ya antes mencionado merge reques
 
 ***Clase 27 Flujo de trabajo profesional: Haciendo merge de ramas de desarrollo a master***
 
+se hace git merge con las ramas
+se revisa los cambios de commits con git log --stat
+git log 
+git show
+git diff
+
 Para poder desarrollar software de manera óptima y ordenada, necesitamos tener un flujo de trabajo profesional, que nos permita trabajar en conjunto sin interrumpir el trabajo de otros desarrolladores. Una buena práctica de flujo de trabajo sería la siguiente:
 
 Crear ramas
@@ -708,6 +714,61 @@ El programador sube su trabajo con git push origin #nombre_rama
 El encargado de organizar el proyecto baja, revisa y unifica todos los cambios
 Aporte creado por: Alejandro Dubon.
 
+***Clase 28 Utilizando pull request en github***
+
+Git no te permitirá borrar una branch en la que te encuentres ubicado, así que debes asegurarte primero de hacer checkout a una branch que no estes intentando borrar. Por ejemplo: git checkout main
+
+Borra una branch local con git branch -d <branch>.
+
+Por ejemplo: git branch -d fix/authentication
+
+La opción -d eliminará la branch únicamente si esta ha sido empujada y fusionada con la branch remota. Utiliza -D si deseas forzar la eliminación de una branch, incluso si aún esta no ha sido empujada o fusionada aún.
+
+La branch ya esta borrada localmente.
+
+Este es el comando para borrar una branch remota: git push <remote> --delete <branch>.
+
+Por ejemplo: git push origin --delete fix/authentication
+
+La branch ya esta eliminada de forma remota.
+
+También puedes utilizar este comando corto para borrar una branch remota: git push <remote> :<branch>
+
+Por ejemplo: git push origin :fix/authentication
+
+Si aparece el siguiente error, esto quiere decir que alguien mas ya ha borrado previamente la branch.
+
+error: unable to push to unqualified destination: remoteBranchName The destination refspec neither matches an existing ref on the remote nor begins with refs/, and we are unable to guess a prefix based on the source ref. error: failed to push some refs to 'git@repository_name'
+Intenta sincronizar tu lista de branches utilizando:
+
+git fetch -p
+La flag -p significa "prune". Después de hacer el fetching, las branches que ya no existan en el repositorio remoto serán eliminadas en el repositorio local.
+
+para borrar la branch local
+git branch -d localBranchName
+
+para borrar la branch remota
+git push origin --delete remoteBranchName
+
+Cómo buena práctica se crea una rama para arreglar errores pequeños o errores que se puedan hacer fácilmente
+
+
+Pull request es una funcionalidad de Github (en Gitlab llamada merge request y en Bitbucket push request), en la que un colaborador pide que revisen sus cambios antes de hacer merge a una rama, normalmente master (ahora conocida como main).
+
+Al hacer un pull request, se genera una conversación que pueden seguir los demás usuarios del repositorio, así como autorizar y rechazar los cambios.
+
+Cómo se realiza un pull request
+Se trabaja en una rama paralela los cambios que se desean git checkout -b <rama>.
+Se hace un commit a la rama git commit -am '<Comentario>'.
+Se suben al remoto los cambios git push origin <rama>.
+En GitHub se hace el pull request comparando la rama master con la rama del fix.
+Uno, o varios colaboradores revisan que el código sea correcto y dan feedback (en el chat del pull request).
+El colaborador hace los cambios que desea en la rama y lo vuelve a subir al remoto (automáticamente jala la historia de los cambios que se hagan en la rama, en remoto).
+Se aceptan los cambios en GitHub.
+Se hace merge a master desde GitHub.
+Importante: Cuando se modifica una rama, también se modifica el pull request.
+
+Aporte creado por: David Behar
 
 ruta para ingresar al disco e: desde git bash
 cd e:
