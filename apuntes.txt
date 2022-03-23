@@ -885,8 +885,19 @@ se lo hace en el siguiente enlace
 https://pages.github.com/
 
 así me quedó la página 
+https://chepedeveloper.github.io/cursoprofesionaldegitygithub.github.io/archivo.html
 
-***Clase 35 
+***Clase 35 Git Rebase: reorganizando el trabajo realizado***
+
+El comando rebase es una mala práctica, nunca se debe usar, pero para efectos del curso te lo vamos a enseñar para que hagas tus propios experimentos. Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+
+# Cambiamos a la rama que queremos traer los cambios
+git checkout experiment
+# Aplicamos rebase para traer los cambios de la rama que queremos 
+git rebase master
+
+
+
 ruta para ingresar al disco e: desde git bash
 cd e:
 /e/platzi/Curso profesional de git y github
