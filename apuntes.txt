@@ -720,6 +720,8 @@ Como buena práctica se crea una rama para arreglar errores pequeños o errores 
 
 Cuando se hace el pull request se puede colocar también una descripción en el write, podemos también agregar personas que revisen el pull request en reviewersen labels también
 
+se dice que squash y rebase son malas prácticas
+Luego de hacer el merge se puede eliminar la rama, y como ya está fusionados los cambios podemos evidenciar que quedó bien, y puedo ver también la historia de los commits
 
 Git no te permitirá borrar una branch en la que te encuentres ubicado, así que debes asegurarte primero de hacer checkout a una branch que no estes intentando borrar. Por ejemplo: git checkout main
 
