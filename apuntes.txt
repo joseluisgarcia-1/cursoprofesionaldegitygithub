@@ -718,6 +718,9 @@ Aporte creado por: Alejandro Dubon.
 
 Como buena práctica se crea una rama para arreglar errores pequeños o errores que se puedan hacer fácilmente
 
+Cuando se hace el pull request se puede colocar también una descripción en el write, podemos también agregar personas que revisen el pull request en reviewersen labels también
+
+
 Git no te permitirá borrar una branch en la que te encuentres ubicado, así que debes asegurarte primero de hacer checkout a una branch que no estes intentando borrar. Por ejemplo: git checkout main
 
 Borra una branch local con git branch -d <branch>.
@@ -768,6 +771,11 @@ Se hace merge a master desde GitHub.
 Importante: Cuando se modifica una rama, también se modifica el pull request.
 
 Aporte creado por: David Behar
+
+Los recomendandos de la clase
+https://platzi.com/blog/que-es-devops/
+https://platzi.com/cursos/devops/
+https://platzi.com/servidores/
 
 
 
