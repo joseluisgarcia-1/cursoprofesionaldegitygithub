@@ -870,9 +870,19 @@ para editar un readme.md podemos usar el siguiente editor oneline
 https://pandao.github.io/editor.md/en.html
 y lo colocamos en el readme.md de github
 
+aunque también lo podemos colocar en el readme.md que tenemos en el proyecto lo editamos en visual studio code o editor de texto de preferencias y lo subimos normal como subir cualquier otro archivo desde la consola
+
 README.md es una excelente práctica en tus proyectos, md significa Markdown, que es una especie de código que te permite cambiar la manera en que se ve un archivo de texto.
 
 Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes texto formateados.
+
+***Clase 34 Tu sitio web público con github pages***
+
+GitHub tiene un servicio de hosting gratis llamado GitHub Pages, tu puedes tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.
+
+Publica tu página en GitHub Pages y compártelo con la comunidad en el área de discusiones de la clase, ¡te esperamos!
+se lo hace en el siguiente enlace
+https://pages.github.com/
 
 ruta para ingresar al disco e: desde git bash
 cd e:
