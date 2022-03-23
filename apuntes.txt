@@ -703,7 +703,8 @@ git log
 git show
 git diff
 
-Para poder desarrollar software de manera óptima y ordenada, necesitamos tener un flujo de trabajo profesional, que nos permita trabajar en conjunto sin interrumpir el trabajo de otros desarrolladores. Una buena práctica de flujo de trabajo sería la siguiente:
+Para poder desarrollar software de manera óptima y ordenada, necesitamos tener un flujo de trabajo profesional, que nos permita trabajar en conjunto sin interrumpir el trabajo de otros desarrolladores. Una buena 
+práctica de flujo de trabajo sería la siguiente:
 
 Crear ramas
 Asignar una rama a cada programador
@@ -745,8 +746,8 @@ Por ejemplo: git push origin :fix/authentication
 
 Si aparece el siguiente error, esto quiere decir que alguien mas ya ha borrado previamente la branch.
 
-error: unable to push to unqualified destination: remoteBranchName The destination refspec neither matches an existing ref on the remote nor begins with refs/, and we are unable to guess a prefix based on the source ref. error: failed to push some refs to 'git@repository_name'
-Intenta sincronizar tu lista de branches utilizando:
+error: unable to push to unqualified destination: remoteBranchName The destination refspec neither matches an existing ref on the remote nor begins with refs/, and we are unable to guess a prefix based on the source 
+ref. error: failed to push some refs to 'git@repository_name' Intenta sincronizar tu lista de branches utilizando:
 
 git fetch -p
 La flag -p significa "prune". Después de hacer el fetching, las branches que ya no existan en el repositorio remoto serán eliminadas en el repositorio local.
@@ -757,7 +758,8 @@ git branch -d localBranchName
 para borrar la branch remota
 git push origin --delete remoteBranchName
 
-Pull request es una funcionalidad de Github (en Gitlab llamada merge request y en Bitbucket push request), en la que un colaborador pide que revisen sus cambios antes de hacer merge a una rama, normalmente master (ahora conocida como main).
+Pull request es una funcionalidad de Github (en Gitlab llamada merge request y en Bitbucket push request), en la que un colaborador pide que revisen sus cambios antes de hacer merge a una rama, normalmente master 
+(ahora conocida como main).
 
 Al hacer un pull request, se genera una conversación que pueden seguir los demás usuarios del repositorio, así como autorizar y rechazar los cambios.
 
@@ -801,18 +803,23 @@ para traernos todos los datos o cambios de main y efectivamente los tenemos en n
 y luego hacemos el git push origin main para subirlos a nuestro repositorio original
 
 
-Los forks o bifurcaciones son una característica única de GitHub en la que se crea una copia exacta del estado actual de un repositorio directamente en GitHub. Este repositorio podrá servir como otro origen y se podrá clonar (como cualquier otro repositorio). En pocas palabras, lo podremos utilizar como un nuevo repositorio git cualquiera
+Los forks o bifurcaciones son una característica única de GitHub en la que se crea una copia exacta del estado actual de un repositorio directamente en GitHub. Este repositorio podrá servir como otro origen y se 
+podrá clonar (como cualquier otro repositorio). En pocas palabras, lo podremos utilizar como un nuevo repositorio git cualquiera
 
-Un fork es como una bifurcación del repositorio completo. Comparte una historia en común con el original, pero de repente se bifurca y pueden aparecer varios cambios, ya que ambos proyectos podrán ser modificados en paralelo y para estar al día un colaborador tendrá que estar actualizando su fork con la información del original.
+Un fork es como una bifurcación del repositorio completo. Comparte una historia en común con el original, pero de repente se bifurca y pueden aparecer varios cambios, ya que ambos proyectos podrán ser modificados en 
+paralelo y para estar al día un colaborador tendrá que estar actualizando su fork con la información del original.
 
-Al hacer un fork de un poryecto en GitHub, te conviertes en dueñ@ del repositorio fork, puedes trabajar en este con todos los permisos, pero es un repositorio completamente diferente que el original, teniendo solamente alguna historia en común (como crédito al creado o creadora original).
+Al hacer un fork de un poryecto en GitHub, te conviertes en dueñ@ del repositorio fork, puedes trabajar en este con todos los permisos, pero es un repositorio completamente diferente que el original, teniendo 
+solamente alguna historia en común (como crédito al creado o creadora original).
 
-Los forks son importantes porque es la manera en la que funciona el open source, ya que, una persona puede no ser colaborador de un proyecto, pero puede contribuír al mismo, haciendo mejor software que pueda ser utilizado por cualquiera.
+Los forks son importantes porque es la manera en la que funciona el open source, ya que, una persona puede no ser colaborador de un proyecto, pero puede contribuír al mismo, haciendo mejor software que pueda ser 
+utilizado por cualquiera.
 
 Cómo se hace un fork remoto desde consola en GitHub
 Al hacer un fork, GitHub sabe que se hizo el fork del proyecto, por lo que se le permite al colaborador hacer pull request desde su repositorio propio.
 
-Cuando trabajas en un proyecto que existe en diferentes repositorios remotos (normalmente a causa de un fork), es muy probable que desees poder trabajar con ambos repositorios. Para esto, puedes generar un remoto adicional desde consola.
+Cuando trabajas en un proyecto que existe en diferentes repositorios remotos (normalmente a causa de un fork), es muy probable que desees poder trabajar con ambos repositorios. Para esto, puedes generar un remoto 
+adicional desde consola.
 
 git remote add <nombre_del_remoto> <url_del_remoto> 
 git remote upstream https://github.com/freddier/hyperblog
@@ -820,7 +827,8 @@ Al crear un remoto adicional, podremos hacer pull desde el nuevo origen. En caso
 
 git pull <remoto> <rama>
 git pull upstream master
-Este pull nos traerá los cambios del remoto, por lo que se estará al día en el proyecto. El flujo de trabajo cambia, en adelante se estará trabajando haciendo pull desde el upstream y push al origin para pasar a hacer pull request.
+Este pull nos traerá los cambios del remoto, por lo que se estará al día en el proyecto. El flujo de trabajo cambia, en adelante se estará trabajando haciendo pull desde el upstream y push al origin para pasar a 
+hacer pull request.
 
 git pull upstream master
 git push origin master
@@ -841,17 +849,56 @@ Deploy:
 Realizar cambios y commit en GitHub.
 Traer al Repositorio local las actualizacion para el servidor en la capeta de los archivos del servidor.
 git pull ramaRemota main
-Nota: Siempre se debe proteger el archivo .git. Dependiendo del software para el servidor web, existen diferentes maneras. La conexión entre GitHub y el servidor se puede realizar mediante: Travis (pago) o Jenkis (Open source).
+Nota: Siempre se debe proteger el archivo .git. Dependiendo del software para el servidor web, existen diferentes maneras. La conexión entre GitHub y el servidor se puede realizar mediante: Travis (pago) o Jenkis 
+(Open source).
 
 Aporte creado por: Brayan Mamani, chedl
 
 ***Clase 32 Ignorar archivos en el repositorio con .gitignore***
 
-
+para hacer esto que es ta efectivo, lo que hacemos es crear un archivo en la raíz del proyecto llamado .gitignore y le colocamos ahí el archivo que queremos que ignore cuando vamos a subir al repositorio, ejemplo:
+*.jpg -> aquí le dijimos que ignore todos los archivos que tengan esa extensión .jpg
+o puede ser un archivo con su nombre tal cual lo tengamos en el proyecto
 
 No todos los archivos que agregas a un proyecto deberían ir a un repositorio, por ejemplo cuando tienes un archivo donde están 
 tus contraseñas que comúnmente tienen la extensión .env o cuando te estás conectando a una 
 base de datos; son archivos que nadie debe ver.
+
+***Clase 33 readme.md es una excelente práctica***
+
+para editar un readme.md podemos usar el siguiente editor oneline
+https://pandao.github.io/editor.md/en.html
+y lo colocamos en el readme.md de github
+
+aunque también lo podemos colocar en el readme.md que tenemos en el proyecto lo editamos en visual studio code o editor de texto de preferencias y lo subimos normal como subir cualquier otro archivo desde la consola
+
+README.md es una excelente práctica en tus proyectos, md significa Markdown, que es una especie de código que te permite cambiar la manera en que se ve un archivo de texto.
+
+Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes texto formateados.
+
+***Clase 34 Tu sitio web público con github pages***
+
+GitHub tiene un servicio de hosting gratis llamado GitHub Pages, tu puedes tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.
+
+Publica tu página en GitHub Pages y compártelo con la comunidad en el área de discusiones de la clase, ¡te esperamos!
+se lo hace en el siguiente enlace
+https://pages.github.com/
+
+así me quedó la página 
+https://chepedeveloper.github.io/cursoprofesionaldegitygithub.github.io/archivo.html
+
+***Clase 35 Git Rebase: reorganizando el trabajo realizado***
+
+El comando rebase es una mala práctica, nunca se debe usar, pero para efectos del curso te lo vamos a enseñar para que hagas tus propios experimentos. Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+
+voy a ptobar ese
+
+# Cambiamos a la rama que queremos traer los cambios
+git checkout experiment
+# Aplicamos rebase para traer los cambios de la rama que queremos 
+git rebase master
+
+
 
 ruta para ingresar al disco e: desde git bash
 cd e:
