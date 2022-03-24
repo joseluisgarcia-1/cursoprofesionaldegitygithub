@@ -907,6 +907,12 @@ y cuando por ejemplo hemos hecho un cambio y le damos git stash el lo coloca com
 y luego verificamos con git status que los cambios han desaparecido.
 - También tenemos que si por ejemplo yo hago un cambio en un archivo y lo pongo en stash con git stash y por ejemplo esos cambios si quiero hacerlos pero en otra rama para no perjudicar lo que tengo lo puedo hacer así:
 - git stash branch version-stash, y ya subo los cambios normalmente,con git commit y git push origin rama
+si por ejemplo yo por x ó y motivo hice un cambio por error o que no me servia o que me está dañando algo, lo que hago es colocarlo en git stash, lo listo con git stash list 
+y luego ese git stash lo borro con git stash drop, y ya no tengo inconvenientes.
+Este se usa cuando se están haciendo cambios pequeños que no necesariamente se deben colocar en un rama si no que como es pequeño se puede devolver en el tiempo rápidamente y fácil y ya queda a criteria si aceptar o quitar esos cambios
+- otra opción de uso es cuando por ejemplo se lleva mucho trabajo adelantado en una rama y no hemos hecho commit entonces necesitamos datos de otra rama, lo que hacemos es colocar lo que hemos hecho en git stash y ya hacer el git checkout
+a la otra rama tranquilamente
+
 
 
 Cuando necesitamos regresar en el tiempo porque borramos alguna línea de código pero no queremos pasarnos a otra rama porque nos daría un error ya que debemos pasar ese “mal cambio” que hicimos a stage, podemos usar git stash para regresar el cambio anterior que hicimos.
