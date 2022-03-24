@@ -932,10 +932,10 @@ las carpetas entonces si debemos borrarlas a mano
 
 ***Clase 38 Git cherry-pick: traer commits viejos al head de un branch***
 
-para usar este ejemplo lo que hicimos fue como estaba en la rama jose agregué una línea en el archivo readme.md y para aplicar lo aprendido coloqué eso en stash y creé una nueva rama en done voy a colocar ese cambio entonces hice lo siguiente:
-- git stash branch readme-mejorado
+para usar este ejemplo lo que hicimos fue como estaba en la rama jose agregué una línea en el archivo readme.md y para aplicar lo aprendido coloqué eso en stash (git stash) y creé una nueva rama en done voy a colocar ese cambio entonces hice lo siguiente:
+- git stash branch readme-prueba
 luego le di git status para ver los cambios y los subí a mi nueva rama con git commit -am "nueva líena en readme", después agregué una línea nueva e hice lo mismo, lo subí con commit y así con una tercera línea
-después como modo de prueba me pasé a la rama jose y no aparece las nuevas líneas que había agregado en la rama readme-mejorado, entonces ahora pasar esa líneas, una línea o un commit específico de la rama readme-mejorado a la rama jose lo que hago es lo siguiente:
+después como modo de prueba me pasé a la rama jose y no aparece las nuevas líneas que había agregado en la rama readme-mejorado, entonces ahora pasar esa líneas, una línea o un commit específico de la rama readme-prueba a la rama jose lo que hago es lo siguiente:
 me paso a la rama jose y entonces le aplico el comando git cherry-pick commit, y para ver ese commit que quiero transferir me debo pasar a la rama donde lo hice que en este caso es: readme-mejorado
 y ya con el dato del commit que quiero pasar hago el comando antes mencionado que es el siguiente:
 
