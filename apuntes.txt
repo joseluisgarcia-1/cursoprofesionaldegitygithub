@@ -932,6 +932,10 @@ las carpetas entonces si debemos borrarlas a mano
 
 ***Clase 38 Git cherry-pick: traer commits viejos al head de un branch***
 
+Existe un mundo alternativo en el cual vamos avanzando en una rama pero necesitamos en master uno de esos avances de la rama, para eso utilizamos el comando git cherry-pick IDCommit.
+
+cherry-pick es una mala práctica porque significa que estamos reconstruyendo la historia, usa cherry-pick con sabiduría. Si no sabes lo que estás haciendo ten mucho cuidado.
+
 para usar este ejemplo lo que hicimos fue como estaba en la rama jose agregué una línea en el archivo readme.md y para aplicar lo aprendido coloqué eso en stash (git stash) y creé una nueva rama en done voy a colocar ese cambio entonces hice lo siguiente:
 - git stash branch readme-prueba
 luego le di git status para ver los cambios y los subí a mi nueva rama con git commit -am "nueva líena en readme", después agregué una línea nueva e hice lo mismo, lo subí con commit y así con una tercera línea
@@ -956,6 +960,8 @@ cuando me pasa eso y se quiere usar el git commit --amend se debe usar el git ad
 - amend lo que significa es remendar, y en este caso lo que va a hacer es que estos últimos cambios que le estoy mandando me los va pegar en el commit anterior donde debía también ir ese cambio
 y podemos también cambiar el mensaje del commit, y listo
 
+A veces hacemos un commit, pero resulta que no queríamos mandarlo porque faltaba algo más. Utilizamos git commit --amend, amend en inglés es remendar y lo que hará es que los cambios que hicimos nos los agregará al commit anterior.
+
 ***Clase 40 git reset y git reflog: úsese en caso de emergencia***
 
 por ejemplo si yo borré de una rama un archivo por error e hice commit y todo, en esa rama, es decir que ese archivo se perdió, entonces para recuperar ese archivo lo que hago es lo siguiente
@@ -969,6 +975,12 @@ y con eso recuperamos nuestro archivo que se había borrado
 
 tener en cuenta que reset --HARD resetea todo lo que se haya hecho hasta ese commit
 
+¿Qué pasa cuando todo se rompe y no sabemos qué está pasando? Con git reset HashDelHEAD nos devolveremos al estado en que el proyecto funcionaba.
+
+git reset --soft HashDelHEAD te mantiene lo que tengas en staging ahí.
+git reset --hard HashDelHEAD resetea absolutamente todo incluyendo lo que tengas en staging.
+git reset es una mala práctica, no deberías usarlo en ningún momento; debe ser nuestro último recurso.
+
 ***Clase 41 Buscar en archivos y commits de Git con grep y log***
 
 git grep palabra -> nos dice o muestra cuantas veces usamos una palabra en nuestro proyecto, y en qué lugares
@@ -977,6 +989,16 @@ git grep -c palabra -> nos va decir las veces que una palabra ocurre, o el núme
 git grep -c "<etiqueta>" -> nos dice cuántas veces hemos usado una etiqueta
 git log -S "palabra" -> para buscar una palabra en los commits o en los títulos de los commit por así decirlo, cuántas veces está esa palabra
 log para lo commits
+
+A medida que nuestro proyecto se hace grande vamos a querer buscar ciertas cosas.
+
+Por ejemplo: ¿cuántas veces en nuestro proyecto utilizamos la palabra color?
+
+Para buscar utilizamos el comando git grep color y nos buscará en todo el proyecto los archivos en donde está la palabra color.
+
+Con git grep -n color nos saldrá un output el cual nos dirá en qué línea está lo que estamos buscando.
+Con git grep -c color nos saldrá un output el cual nos dirá cuántas veces se repite esa palabra y en qué archivo.
+Si queremos buscar cuántas veces utilizamos un atributo de HTML lo hacemos con git grep -c "<p>".
 
 ***Clase 42 Comandos y recursos colaborativos en git y github***
 
@@ -1030,6 +1052,8 @@ git branch -a -> para ver las ramas remotas y locales
 
 y por último ver en github la parte del insights, donde se pueden ven contribuciones, communitys, commits, frecuencia de código, 
 cuántos merge se han hecho, cuántos fork se han hecho entre otros datos
+
+https://git-scm.com/docs/git-blame
 
 ***Clase 43 Clase final***
 
