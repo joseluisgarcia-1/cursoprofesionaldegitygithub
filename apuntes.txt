@@ -1031,6 +1031,9 @@ git branch -a -> para ver las ramas remotas y locales
 y por último ver en github la parte del insights, donde se pueden ven contribuciones, communitys, commits, frecuencia de código, 
 cuántos merge se han hecho, cuántos fork se han hecho entre otros datos
 
+***Clase 43 Clase final***
+
+- Aprender Travis, Jenkis, gitlab
 
 
 ruta para ingresar al disco e: desde git bash
