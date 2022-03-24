@@ -930,6 +930,108 @@ Para saber qué archivos vamos a borrar tecleamos git clean --dry-run
 Para borrar todos los archivos listados (que no son carpetas) tecleamos git clean -f
 las carpetas entonces si debemos borrarlas a mano 
 
+***Clase 38 Git cherry-pick: traer commits viejos al head de un branch***
+
+para usar este ejemplo lo que hicimos fue como estaba en la rama jose agregué una línea en el archivo readme.md y para aplicar lo aprendido coloqué eso en stash y creé una nueva rama en done voy a colocar ese cambio entonces hice lo siguiente:
+- git stash branch readme-mejorado
+luego le di git status para ver los cambios y los subí a mi nueva rama con git commit -am "nueva líena en readme", después agregué una línea nueva e hice lo mismo, lo subí con commit y así con una tercera línea
+después como modo de prueba me pasé a la rama jose y no aparece las nuevas líneas que había agregado en la rama readme-mejorado, entonces ahora pasar esa líneas, una línea o un commit específico de la rama readme-mejorado a la rama jose lo que hago es lo siguiente:
+me paso a la rama jose y entonces le aplico el comando git cherry-pick commit, y para ver ese commit que quiero transferir me debo pasar a la rama donde lo hice que en este caso es: readme-mejorado
+y ya con el dato del commit que quiero pasar hago el comando antes mencionado que es el siguiente:
+
+git cherry-pick commit
+
+y ya con eso tenemos el dato en la rama jose, ni si quiera se hace un commit adicional si no que ese mismo comando lo pega inmediatamente, entonces ahí ya le aplico el git push origin rama
+y listo, pasamos el datos o commit que tenía el dato que necesitaba a mi nueva rama
+
+***Clase 39 reconstruir commits en git con amend***
+
+Si por ejemplo en un archivo debía hacer dos cambios y me olvidé e hice un solo cambio, y envié el commit al repositorio con
+por ejemplo: git commit -am "dos cambios en el footer y en la cabecera"
+entonces para no volver a hacer otro commit con un nuevo mensaje y tener eso en el repositorio lo que hago es hacer el otro cambio y el mensaje del commit modificarlo y enviar las dos informaciones a la vez así:
+cuando me pasa eso y se quiere usar el git commit --amend se debe usar el git add, tener eso muy en cuenta
+- git status
+- git add archivo
+- git commit --amend
+- amend lo que significa es remendar, y en este caso lo que va a hacer es que estos últimos cambios que le estoy mandando me los va pegar en el commit anterior donde debía también ir ese cambio
+y podemos también cambiar el mensaje del commit, y listo
+
+***Clase 40 git reset y git reflog: úsese en caso de emergencia***
+
+por ejemplo si yo borré de una rama un archivo por error e hice commit y todo, en esa rama, es decir que ese archivo se perdió, entonces para recuperar ese archivo lo que hago es lo siguiente
+ejecutar el comando git reflog, en donde vamos a encontrar todos los movimientos de la rama y ahí podemos ver el id del commit o también llamado hash como el HEAD y posición del HEAD así:
+HEAD@{0} y qué es lo que se ha hecho en cada head como en cada commit, entonces se busca el head o el commit donde aparentemente o todo estaba bien, lo copiamos y lo pasamos con el siguiente comando
+
+git reset HEAD@{0} -> esto fue un git reset --soft, y lo que queremos es aplicar un git reset --HARD
+y lo aplicamos así:
+git reset --HARD hash_del_commit
+y con eso recuperamos nuestro archivo que se había borrado
+
+tener en cuenta que reset --HARD resetea todo lo que se haya hecho hasta ese commit
+
+***Clase 41 Buscar en archivos y commits de Git con grep y log***
+
+git grep palabra -> nos dice o muestra cuantas veces usamos una palabra en nuestro proyecto, y en qué lugares
+git grep -n palabra -> nos va decir la línea donde la usé, la línea exacta
+git grep -c palabra -> nos va decir las veces que una palabra ocurre, o el número de veces que tenemos esa palabra en un archivo
+git grep -c "<etiqueta>" -> nos dice cuántas veces hemos usado una etiqueta
+git log -S "palabra" -> para buscar una palabra en los commits o en los títulos de los commit por así decirlo, cuántas veces está esa palabra
+log para lo commits
+
+***Clase 42 Comandos y recursos colaborativos en git y github***
+
+git shortlog -> nos sirve para ver cuantos commits ha hecho el equipo o en un proyecto o cada uno de los miembros del equipo
+git shortlog -sn -> nos muestra las personas que han hecho ciertos commits
+git shortlog -sn --all -> nos muestra todos los commits, inclusive los que se han borrado
+git shortlog -sn --all --no-merges -> nos muestra los commits pero no los merges, únicamente commits 
+por ejemplo si quiero agregar un alias en git para toda la configuración que tengo y que quede en la máquina actual lo hago de la siguiente manera
+- git config --global alias.stats "shortlog -sn --all --no-merges" 
+de manera que cuando yo ejecute el alias "git stats" en mi consola ejecute ese comando, y obtuve esto:
+$ git stats
+    40  joseluisgarcia-1
+     7  chepedeveloper
+
+git blame archivo -> nos muestra o nos permite ver quién hizo algo o qué hizo
+ejemplo: git blame archivo.html
+
+5295e838 (chepedeveloper   2022-03-23 11:02:00 -0500 41)                 <p>Prueba desde la máquina virtual con el fork</p>
+8a7d62c9 (joseluisgarcia-1 2022-03-19 21:30:13 -0500 42)             </div>
+5d91c348 (chepedeveloper   2022-03-20 10:08:25 -0500 43)             <div id="footer">
+5d91c348 (chepedeveloper   2022-03-20 10:08:25 -0500 44)                 Hecho con amor para Samara
+5d91c348 (chepedeveloper   2022-03-20 10:08:25 -0500 45)             </div>
+8a7d62c9 (joseluisgarcia-1 2022-03-19 21:30:13 -0500 46)         </div>
+8a7d62c9 (joseluisgarcia-1 2022-03-19 21:30:13 -0500 47)     </body>
+8a7d62c9 (joseluisgarcia-1 2022-03-19 21:30:13 -0500 48) </html>
+
+ahí puedo ver quién hizo los cambios está el username de git, el hash del commit, y la hora, y lo que se cambió
+
+y pa verlos más organizado sería así:
+git blame -c archivo
+ejemplo: git -c blame archivo.html
+
+5295e838        (chepedeveloper 2022-03-23 11:02:00 -0500       41)                <p>Prueba desde la máquina virtual con el fork</p>
+8a7d62c9        (joseluisgarcia-1       2022-03-19 21:30:13 -0500       42)            </div>
+5d91c348        (chepedeveloper 2022-03-20 10:08:25 -0500       43)            <div id="footer">
+5d91c348        (chepedeveloper 2022-03-20 10:08:25 -0500       44)                Hecho con amor para Samara
+5d91c348        (chepedeveloper 2022-03-20 10:08:25 -0500       45)            </div>
+8a7d62c9        (joseluisgarcia-1       2022-03-19 21:30:13 -0500       46)        </div>
+8a7d62c9        (joseluisgarcia-1       2022-03-19 21:30:13 -0500       47)    </body>
+
+si por ejemplo uno quiere saber o ver como funciona un comando por dentro lo hacemos con:
+git blame --help
+
+git blame archivo.html -L10,22 -> nos dice que vamos a ver quién modificó o hizo cambios desde la línea 10 a la 22
+nos dice que vamos a ver quién modificó o hizo cambios desde la línea 10 a la 22 pero más ordenado
+git blame archivo.html -L10,22 -c -> 
+
+git branch -> para ver las ramas actuales
+git branch -r -> para ver las ramas remotas
+git branch -a -> para ver las ramas remotas y locales
+
+y por último ver en github la parte del insights, donde se pueden ven contribuciones, communitys, commits, frecuencia de código, 
+cuántos merge se han hecho, cuántos fork se han hecho entre otros datos
+
+
 
 ruta para ingresar al disco e: desde git bash
 cd e:
