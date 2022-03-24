@@ -913,12 +913,22 @@ Este se usa cuando se están haciendo cambios pequeños que no necesariamente se
 - otra opción de uso es cuando por ejemplo se lleva mucho trabajo adelantado en una rama y no hemos hecho commit entonces necesitamos datos de otra rama, lo que hacemos es colocar lo que hemos hecho en git stash y ya hacer el git checkout
 a la otra rama tranquilamente
 
-
-
+git stash es típico cuando estamos cambios que no merecen una rama o no merecen un rebase si no simplemente estamos probando algo y luego quieres volver rápidamente a tu versión anterior la cual es la correcta.
 Cuando necesitamos regresar en el tiempo porque borramos alguna línea de código pero no queremos pasarnos a otra rama porque nos daría un error ya que debemos pasar ese “mal cambio” que hicimos a stage, podemos usar git stash para regresar el cambio anterior que hicimos.
 
-git stash es típico cuando estamos cambios que no merecen una rama o no merecen un rebase si no simplemente estamos probando algo y luego quieres volver rápidamente a tu versión anterior la cual es la correcta.
+***Clase 37 Git Clean: limpiar tu proyecto de archivos no deseados***
 
+por ejemplo yo cogí una imagen y la copié muchas veces, eso lo verifico con git status y esos archivos que me marca en rojo no los quiero agregar y los quiero quitar, entonces en la consola uso el siguiente comando:
+- git clean --dry-run
+y lo que hace este comando es simular lo que se va borrar sin borrarlo, es decir, primero como que nos avisa como que esto es lo que vas a borrar y luego ya con 
+- git clean -f
+se borra los archivos, pero ese comando solo borra archivos más no carpetas, las carpetas si hay que borrarlas manualmente
+
+A veces creamos archivos cuando estamos realizando nuestro proyecto que realmente no forman parte de nuestro directorio de trabajo, que no se deberían agregar y lo sabemos.
+
+Para saber qué archivos vamos a borrar tecleamos git clean --dry-run
+Para borrar todos los archivos listados (que no son carpetas) tecleamos git clean -f
+las carpetas entonces si debemos borrarlas a mano 
 
 
 ruta para ingresar al disco e: desde git bash
