@@ -904,7 +904,9 @@ recordar el gitk que es una interfaz de ramas y cosas que hemos hecho
 
 cuando tenemos algo stasheado lo podemos ver así, git stash list
 y cuando por ejemplo hemos hecho un cambio y le damos git stash el lo coloca como en memoria y lo esconde por así decirlo, y cuando le ingresamos git stash pop nos muestra lo que estabamos cambiando, regresamos con ctrl + z, 
-y luego verificamos con git status que los cambios han desaparecido
+y luego verificamos con git status que los cambios han desaparecido.
+- También tenemos que si por ejemplo yo hago un cambio en un archivo y lo pongo en stash con git stash y por ejemplo esos cambios si quiero hacerlos pero en otra rama para no perjudicar lo que tengo lo puedo hacer así:
+- git stash branch version-stash
 
 
 Cuando necesitamos regresar en el tiempo porque borramos alguna línea de código pero no queremos pasarnos a otra rama porque nos daría un error ya que debemos pasar ese “mal cambio” que hicimos a stage, podemos usar git stash para regresar el cambio anterior que hicimos.
